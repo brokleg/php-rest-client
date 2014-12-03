@@ -46,8 +46,7 @@ class RestClient
     private function url($url = null)
     {
         $_host = rtrim($this->host, '/');
-        $_url = ltrim($url, '/');
-
+        $_url = ltrim(str_replace($_host, '', $url), '/');
         return "{$_host}/{$_url}";
     }
 
